@@ -2,16 +2,37 @@ var express = require('express');
 var router = express.Router();
 
 // if ?delay=secs is specified then delay processing
-router.use((req,res,next)=>{
-  if (req.query.delay){
-    setTimeout(next,req.query.delay*1000)
+router.use((req, res, next) => {
+  if (req.query.delay) {
+    setTimeout(next, req.query.delay * 1000)
   }
   else {
     next();
   }
-} )
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+})
+
+// ?status=[code] returns status code
+router.use((req, res, next) => {
+  if (req.query.status) {
+    res.sendStatus(req.query.status);
+  } else {
+    next();
+  }
+})
+
+router.use(function (req, res, next) {
+  let payload={
+    method:req.method,
+    body:req.body,
+    url:req.url,
+    baseUrl:req.baseUrl,
+    query:req.query,
+    youSentHeaders:req.headers,
+    rawHeaders:req.rawHeaders,
+    processingTimestamp:Date.now(),
+    yourLuckyNumber:(Math.random()*100)>>0
+  }
+  res.json(payload);
 });
 
 module.exports = router;

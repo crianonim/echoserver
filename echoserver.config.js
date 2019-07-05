@@ -1,4 +1,4 @@
 module.exports = {
     "port": 3333,
-    "mountpath": "echoserver"
+    "mountpath": "" // "echoserver" was the default
 }

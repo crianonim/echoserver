@@ -8,12 +8,14 @@ const countries=[
     {country:"Bulgaria",capital:"Sofia"},
     {country:"Germany",capital:"Berlin"},
     {country:"Italy",capital:"Rome"},
-
-
-
-    
 ]
-router.get("/",(req,res)=>{
+
+router.get("/countries",(req,res)=>{
     res.json(countries)
 })
+
+router.get('/', function(req, res, next) {
+    res.render('index', { title: 'Echo server' });
+  });
+
 module.exports=router;

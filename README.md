@@ -22,6 +22,10 @@ Sends back a status (ie error,404,500) instead of a normal response.
 
 ```/api/content/countries/``` lists some countries and their capital
 
+```/api/content/countries/random``` returns a random country entry
+
+```/api/content/countries/poland``` returns an entry about a country
+
 
 ## Config
 Defalut configuration for deployment

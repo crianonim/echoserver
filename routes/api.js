@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const contentRouter=require("./content");
 
 // if ?delay=secs is specified then delay processing
 router.use((req, res, next) => {
@@ -20,7 +21,9 @@ router.use((req, res, next) => {
   }
 })
 
-router.use(function (req, res, next) {
+router.use("/content",contentRouter);
+
+router.all(function (req, res, next) {
   let payload={
     method:req.method,
     body:req.body,

@@ -13,7 +13,6 @@ router.use((req, res, next) => {
 
 // ?status=[code] returns status code
 router.use((req, res, next) => {
-  console.log("STATUS")
 
   if (req.query.status) {
     res.sendStatus(req.query.status);
@@ -25,7 +24,6 @@ router.use((req, res, next) => {
 router.use("/content", contentRouter);
 
 router.all("*",function(req, res, next) {
-  console.log("ALL")
   let payload = {
     method: req.method,
     body: req.body,

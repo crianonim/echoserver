@@ -34,13 +34,14 @@ const paragraphs=[
 
 const getCountry = (country) => country === "random" ? countries[(Math.random() * countries.length) >> 0] : countries.find(c => c.country.toLowerCase() == country.toLowerCase()) || {}
 
+const getAllCountries = () => countries;
 
 router.get("/countries/:country", (req, res) => {
   res.json(getCountry(req.params.country))
 });
 
 router.get("/countries", (req, res) => {
-  res.json(countries);
+  res.json(getAllCountries());
 });
 
 router.get("/paragraph",(req,res)=>{
@@ -60,4 +61,4 @@ router.get("/", function(req, res, next) {
   res.render("index", { title: "Echo server" });
 });
 
-module.exports = { router , getCountry,paragraphs, countries} ;
+module.exports = { router , getCountry,paragraphs, countries, getAllCountries} ;

@@ -32,14 +32,11 @@ const paragraphs=[
 "Of on affixed civilly moments promise explain fertile in. Assurance advantage belonging happiness departure so of. Now improving and one sincerity intention allowance commanded not. Oh an am frankness be necessary earnestly advantage estimable extensive. Five he wife gone ye. Mrs suffering sportsmen earnestly any. In am do giving to afford parish settle easily garret. ",
 ]
 
+const getCountry = (country) => country === "random" ? countries[(Math.random() * countries.length) >> 0] : countries.find(c => c.country.toLowerCase() == country.toLowerCase()) || {}
+
+
 router.get("/countries/:country", (req, res) => {
-  const country = req.params.country;
-  let data =
-    countries.find(c => c.country.toLowerCase() == country.toLowerCase()) || {};
-  if (country == "random") {
-    data = countries[(Math.random() * countries.length) >> 0];
-  }
-  res.json(data);
+  res.json(getCountry(req.params.country))
 });
 
 router.get("/countries", (req, res) => {
@@ -63,4 +60,4 @@ router.get("/", function(req, res, next) {
   res.render("index", { title: "Echo server" });
 });
 
-module.exports = router;
+module.exports = { router , getCountry,paragraphs, countries} ;

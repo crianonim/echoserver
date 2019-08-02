@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const contentRouter = require("./content");
+const contentRouter = require("./content").router;
 
 // if ?delay=secs is specified then delay processing
 router.use((req, res, next) => {

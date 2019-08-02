@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "test": "jest"
+    "test": "jest",
+    "report-coverage": "jest && codecov -t ebd434c2-8fc2-494b-b78d-702c81dd150c"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -17,6 +18,7 @@
     "pug": "^2.0.3"
   },
   "devDependencies": {
+    "codecov": "^3.5.0",
     "jest": "^24.8.0"
   }
 }

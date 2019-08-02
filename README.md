@@ -1,4 +1,6 @@
 # EchoServer
+[![codecov](https://codecov.io/gh/crianonim/echoserver/branch/master/graph/badge.svg)](https://codecov.io/gh/crianonim/echoserver)
+[![Build Status](https://travis-ci.org/crianonim/echoserver.svg?branch=master)](https://travis-ci.org/crianonim/echoserver)
 
 Standalone simple server to respond to different HTTP methods, so you can for example test making requests.
 

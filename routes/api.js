@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+const proxyRouter = require("./proxy");
 const contentRouter = require("./content").router;
 
 // if ?delay=secs is specified then delay processing
@@ -22,7 +23,7 @@ router.use((req, res, next) => {
 });
 
 router.use("/content", contentRouter);
-
+router.use("/proxy",proxyRouter);
 router.all("*",function(req, res, next) {
   let payload = {
     method: req.method,
